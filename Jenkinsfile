@@ -9,11 +9,11 @@ pipeline {
     }
     
     stages {
-        stage('Clone') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Ramlu/tweet-trend-new.git'      
-            }        
-        }
+        // stage('Clone') {
+        //     steps {
+        //         git branch: 'main', url: 'https://github.com/Ramlu/tweet-trend-new.git'      
+        //     }        
+        // }
         stage('Build') {
             steps {
                 sh 'mvn clean deploy'
