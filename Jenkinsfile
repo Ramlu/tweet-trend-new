@@ -19,5 +19,13 @@ pipeline {
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
             }
         }
+         stage('SonarQube analysis') {
+             environment {
+                scannerHome = tool 'sonarqube-scanner'; 
+             }
+            withSonarQubeEnv('sonar-server') {
+                  sh "${scannerHome}/bin/sonar-scanner"
+            }
+        }
     }
 }
